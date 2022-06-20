@@ -11,26 +11,26 @@ function computerPlay () {
     } 
     console.log(computerPlay())
 
-const humanPlay = 'rock';
+let humanPlay = 'pApEr'.toLowerCase();
 const win = 'You totally won!';
 const lose = 'Bummer you lost...';
 const tie = 'You tied! Try again!';
 
 
-function playRound(humanPlay, computerPlay) {
-    if (humanPlay == computerPlay) {
-        return tie;
-    } else if (humanPlay = 'rock' && computerPlay == 'paper' || 
-    humanPlay == 'paper' && computerPlay == 'scissors' || 
-    humanPlay =='scissors' && computerPlay == 'rock') {
+function playRound(human, computer) {
+    if (humanPlay == 'rock' && computerPlay() == 'paper' || 
+    humanPlay == 'paper' && computerPlay() == 'scissors' || 
+    humanPlay =='scissors' && computerPlay() == 'rock') {
         return lose;
+    } else if (humanPlay === computerPlay()) {
+        return tie;
     } else {
         return win;
     }
 }
+console.log(playRound(humanPlay, computerPlay()))
 
-console.log(playRound())
-// console.log(playRound('paper', 'scissors'))
+
 
 
 
