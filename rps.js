@@ -9,9 +9,15 @@ function computerPlay () {
     } else  (randomNumber == 2) 
         return 'scissors';
     } 
-    console.log(computerPlay())
+   
+    
+let humanResponse = prompt('Let\'s play! Choose rock, paper or scissors');
+let humanPlay = humanResponse.toLowerCase();
+// if (humanPlay == 'scissors' || 'rock' || 'paper') {}
 
-let humanPlay = 'pApEr'.toLowerCase();
+console.log(computerPlay())
+console.log(humanPlay)
+
 const win = 'You totally won!';
 const lose = 'Bummer you lost...';
 const tie = 'You tied! Try again!';
@@ -30,6 +36,17 @@ function playRound(human, computer) {
 }
 console.log(playRound(humanPlay, computerPlay()))
 
+
+// The code below will run multiple turns in the game
+
+const game =  ()
+
+for (let i = 0; i < 5; i++) {
+    if (i < 5) {
+
+    }
+
+}
 
 
 
