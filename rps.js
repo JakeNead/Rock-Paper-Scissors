@@ -1,74 +1,56 @@
+let humanScore = 0;
+let computerScore = 0;
 
-// const randomNumber = Math.floor(Math.random()*3);
-
-// function computerPlay () {
-//     if (randomNumber == 0) {
-//         return 'rock';
-//     } else if (randomNumber == 1) {
-//         return 'paper';
-//     } else  (randomNumber == 2) 
-//         return 'scissors';
-//     } 
-   
-    
-// I could add an error allert if the input is null
-// if (humanPlay == 'scissors' || 'rock' || 'paper') {}
-
-// console.log(computerPlay())
-// console.log(humanPlay)
-
-const win = 'You totally won!';
-const lose = 'Bummer you lost...';
-const tie = 'You tied! Try again!';
-
-
-
-// The code below will run multiple turns in the game
-
-    const game = () =>{
-    for (let i = 0; i < 5; i++) {
-    let humanResponse = prompt('Let\'s play! Choose rock, paper or scissors');
-    let humanPlay = humanResponse.toLowerCase();
-
+function game() {
+    const humanResponse = prompt('Choose rock, paper or scissors')
+    const humanPlay = humanResponse.toLowerCase();
     const randomNumber = Math.floor(Math.random()*3);
+ 
     function computerPlay () {
-    if (randomNumber == 0) {
+        if (randomNumber == 0) {
         return 'rock';
-    } else if (randomNumber == 1) {
+        } else if (randomNumber == 1) {
         return 'paper';
-    } else  (randomNumber == 2) 
+        } else  (randomNumber == 2) 
         return 'scissors';
-    } 
+        }  
 
-    function playRound(human, computer) {
-        if (humanPlay == 'rock' && computerPlay() == 'paper' || 
-        humanPlay == 'paper' && computerPlay() == 'scissors' || 
-        humanPlay =='scissors' && computerPlay() == 'rock') {
-            return lose;
-        } else if (humanPlay === computerPlay()) {
-            return tie;
-        } else {
-            return win;
-        }
-        }
-        console.log(computerPlay())
-        console.log(humanPlay)
-        console.log(playRound(humanPlay, computerPlay()))
+    function win () {
+        humanScore += 1;
+        console.log('You won!');
     }
+    function lose () {
+        computerScore += 1;
+        console.log('You lost...');
+    }
+    function tie () {
+        console.log('You tied!');
+    }
+     
+        if (humanPlay == 'rock' && computerPlay() == 'paper' || 
+            humanPlay == 'paper' && computerPlay() == 'scissors' || 
+            humanPlay =='scissors' && computerPlay() == 'rock') {;
+        return lose();
+        } else if (humanPlay === computerPlay()) {
+        return tie();
+        } else {
+        return win();
+        }
+    }      
+ 
+for (let i = 0; i < 5; i++) {
+    if (i < 4) {
+        game();
+    } else {
+        game()
+        if (computerScore > humanScore) {
+            console.log('The computer wins the day!')
+        } else if (computerScore < humanScore) {
+            console.log('The Human won the day!')
+        } else  { 
+            console.log('It\'s a tie game. Try again!');
+    }
+        console.log(`Computer ${computerScore}, Human ${humanScore}`)
+    }
+        
 }
-// let hScore = 0 ;
-// let cScore = 0 ;
-
-// if (win) {
-//     let hScore = hScore++
-// } else if (lose); {
-//     let cScore = cScore++
-// }
-
-game ();
-
-//Unused code below here.
-
-// const choice = ['rock', 'paper', 'scissors'];
-
-// if ('rock', 'rock' || 'scissors', 'scissors' || 'paper', 'paper') 
