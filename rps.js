@@ -4,6 +4,7 @@ let computerScore = 0;
 function game(humanPlay) {
     let computerPlay = ''
     function computerSelection () {
+        let rpsChoice = ['rock', 'paper', 'scissors']
         let randomNumber = Math.floor(Math.random()*3);
             if (randomNumber === 0) {
             return computerPlay = 'rock';
@@ -47,20 +48,23 @@ function game(humanPlay) {
 const rock = document.querySelector('.rock')
 rock.addEventListener('click', () => {
     game('rock')
+    score.textContent = `Human ${humanScore} - Computer ${computerScore}`
 })
 
 const paper = document.querySelector('.paper')
 paper.addEventListener('click', () => {
     game('paper')
+    score.textContent = `Human ${humanScore} - Computer ${computerScore}`
 })
 
 const scissors = document.querySelector('.scissors')
 scissors.addEventListener('click', () => {
     game('scissors')
+    score.textContent = `Human ${humanScore} - Computer ${computerScore}`
 })
 
 
-const score = document.querySelector('score')
+// const score = document.querySelector('.score')
 
 
 // for (let i = 0; i < 5; i++) {
