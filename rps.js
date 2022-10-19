@@ -2,24 +2,9 @@ let humanScore = 0;
 let computerScore = 0;
 
 function game(humanPlay) {
-    let computerPlay = ''
-    function computerSelection () {
-        let rpsChoice = ['rock', 'paper', 'scissors']
-        return computerPlay = rpsChoice[Math.floor(Math.random()*3)];
-            }  
-    computerSelection()
 
-    function win () {
-        humanScore += 1;
-        result.textContent = "Human won the round!"
-    }
-    function lose () {
-        computerScore += 1
-        result.textContent = "Computer won the round!"
-    }
-    function tie () {
-        result.textContent = "Tie!"
-    }
+    let rpsChoice = ['rock', 'paper', 'scissors']
+    let computerPlay = rpsChoice[Math.floor(Math.random()*3)];
 
     if (humanPlay !== 'rock' && humanPlay !== 'paper' && humanPlay !== 'scissors') {
         alert('Try again!')
@@ -28,13 +13,28 @@ function game(humanPlay) {
     else if (humanPlay === 'rock' && computerPlay === 'paper' || 
         humanPlay === 'paper' && computerPlay === 'scissors' || 
         humanPlay ==='scissors' && computerPlay === 'rock') {;
-        return lose();
+            computerScore += 1
+            result.textContent = "Computer won the round!"
+            return announceWinner()
     } else if (humanPlay === computerPlay) {
-        return tie();
+        return result.textContent = "Tie!"
     } else {
-        return win();
+        humanScore += 1;
+        result.textContent = "Human won the round!"
+        return announceWinner()
     }
 }      
+
+function announceWinner () {
+    if (humanScore === 3) {
+        declareWinner.textContent = 'You won the game!'
+        disableButtons()
+    } else if (computerScore === 3) {
+        disableButtons()
+        return declareWinner.textContent = 'The computer won the game!'
+    }
+}
+const declareWinner = document.querySelector('.declareWinner')
 
 const rock = document.querySelector('.rock')
 rock.addEventListener('click', () => {
@@ -54,18 +54,9 @@ scissors.addEventListener('click', () => {
     score.textContent = `Human ${humanScore} - Computer ${computerScore}`
 })
 
-
-// for (let i = 0; i < 5; i++) {
-//     if (i < 4) {
-//         game();
-//     } else {
-//         if (computerScore > humanScore) {
-//             console.log('The computer wins the day!')
-//         } else if (computerScore < humanScore) {
-//             console.log('The Human won the day!')
-//         } else  { 
-//             console.log('It\'s a tie game. Try again!');
-//         }
-//         console.log(`Computer ${computerScore}, Human ${humanScore}`)
-//     }
-// }
+const buttons = document.querySelectorAll('button')
+function disableButtons () {
+    buttons.forEach(button => {
+        button.disabled = true
+    });
+}
