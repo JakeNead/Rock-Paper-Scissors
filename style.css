@@ -1,5 +1,8 @@
 body {
-    background-color: rgb(202, 197, 197)
+    background-color: rgb(202, 197, 197);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .box {
@@ -9,7 +12,19 @@ body {
 }
 
 .buttonBox {
-    display:flex;
+    display: flex;
     flex-direction: row;
 
+}
+
+button {
+    margin: 5px;
+    border-radius: 7px;
+}
+
+.footer {
+    display: flex;
+    margin-top: auto;
+    flex-direction: column;
+    align-items: center;
 }
